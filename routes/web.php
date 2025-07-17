@@ -3,6 +3,8 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\MidtransCallbackController;
+use App\Http\Controllers\PrivacyPolicyController;
+use App\Http\Controllers\TermsController;
 use App\Livewire\Pricing;
 use App\Models\Plan;
 use App\Services\MidtransService;
@@ -25,7 +27,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->name('pricing');
 });
 
-Route::get('/terms/{lang?}', [\App\Http\Controllers\TermsController::class, 'show'])->name('terms');
+Route::get('/terms/{lang?}', [TermsController::class, 'show'])
+    ->where('lang', 'id|en')
+    ->name('terms');
+Route::get('/privacy-policy/{lang?}', [PrivacyPolicyController::class, 'show'])
+    ->where('lang', 'id|en')
+    ->name('privacy-policy');
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::view('/dashboard', 'admin.dashboard')->name('dashboard');

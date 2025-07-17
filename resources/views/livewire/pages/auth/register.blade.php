@@ -14,6 +14,7 @@ new #[Layout('layouts.guest')] class extends Component
     public string $email = '';
     public string $password = '';
     public string $password_confirmation = '';
+    public bool $agree = false;
 
     /**
      * Handle an incoming registration request.
@@ -24,6 +25,7 @@ new #[Layout('layouts.guest')] class extends Component
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
+            'agree' => ['accepted'],
         ]);
 
         $validated['password'] = Hash::make($validated['password']);
@@ -74,6 +76,21 @@ new #[Layout('layouts.guest')] class extends Component
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
+
+        <!-- Terms and Privacy Policy -->
+        <div class="mt-4">
+            <label class="flex items-center">
+                <input type="checkbox" wire:model="agree" name="agree" class="rounded border-gray-300 text-blue-600 shadow-sm focus:ring-blue-500">
+                <span class="ms-2 text-sm text-gray-600">
+                    {!! __('Saya setuju dengan <a href=":privacy" target="_blank" class="underline">Kebijakan Privasi</a> dan <a href=":terms" target="_blank" class="underline">Syarat & Ketentuan</a>.', [
+                        'privacy' => url('/privacy-policy/id'),
+                        'terms' => url('/terms/id'),
+                    ]) !!}
+                </span>
+            </label>
+            <x-input-error :messages="$errors->get('agree')" class="mt-2" />
+        </div>
+
 
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" href="{{ route('login') }}" wire:navigate>
