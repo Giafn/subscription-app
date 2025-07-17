@@ -33,6 +33,14 @@ new #[Layout('layouts.guest')] class extends Component
 
         $this->redirect('/', navigate: true);
     }
+
+    // boot
+    public function mount(): void
+    {
+        if (Auth::user()->hasVerifiedEmail()) {
+            $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
+        }
+    }
 }; ?>
 
 <div>
