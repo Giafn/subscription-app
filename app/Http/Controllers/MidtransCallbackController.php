@@ -38,7 +38,7 @@ class MidtransCallbackController extends Controller
         }
 
         $planType = $subscription->plan->type;
-        if ($planType === 'one_time') {
+        if ($planType === 'one_time' && $transactionStatus === 'settlement') {
             $this->makeQuotaEvent($subscription);
         }
 
