@@ -42,7 +42,7 @@ return [
             <p>Kami dapat memperbarui Kebijakan Privasi ini dari waktu ke waktu. Perubahan akan diumumkan melalui halaman ini, dan kami menganjurkan Anda untuk meninjau secara berkala.</p>
 
             <h2>I. Hubungi Kami</h2>
-            <p>Jika Anda memiliki pertanyaan terkait kebijakan ini, silakan hubungi tim kami melalui email <a href="mailto:support@jurination.com" class="underline">support@jurination.com</a>.</p>
+            <p>Jika Anda memiliki pertanyaan terkait kebijakan ini, silakan hubungi tim kami melalui email <a href="mailto:admin@irondevlab.com" class="underline">admin@irondevlab.com</a>.</p>
         HTML,
     ],
     'en' => [
@@ -86,7 +86,7 @@ return [
             <p>We may update this Privacy Policy periodically. Changes will be posted on this page, and we encourage you to review it regularly.</p>
 
             <h2>I. Contact Us</h2>
-            <p>If you have any questions regarding this policy, feel free to contact our team at <a href="mailto:support@jurination.com" class="underline">support@jurination.com</a>.</p>
+            <p>If you have any questions regarding this policy, feel free to contact our team at <a href="mailto:admin@irondevlab.com" class="underline">admin@irondevlab.com</a>.</p>
         HTML,
     ],
 ];
