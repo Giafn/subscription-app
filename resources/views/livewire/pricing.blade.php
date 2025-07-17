@@ -95,6 +95,9 @@
                     },
                     onError: function(result) {
                         alert('Pembayaran gagal: ' + result.status_message);
+                    },
+                    onClose: function() {
+                        alert('Apakah Anda sudah melakukan pembayaran? Jika ya, silakan refresh halaman ini.');
                     }
                 });
             });

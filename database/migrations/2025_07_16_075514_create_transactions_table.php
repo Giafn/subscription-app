@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignUuid('subscription_id')->constrained()->onDelete('cascade');
             $table->string('order_id');
             $table->integer('amount');
-            $table->enum('status', ['pending', 'success', 'failed', 'canceled'])->default('pending');
+            $table->enum('status', ['pending', 'success', 'failed', 'cancelled'])->default('pending');
             $table->timestamps();
         });
     }

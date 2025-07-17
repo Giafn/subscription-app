@@ -107,6 +107,7 @@ class Pricing extends Component
             $this->dispatch('open-snap', snapToken: $snapToken);
         } catch (\Throwable $e) {
             DB::rollBack();
+            dd($e);
             Log::error('Gagal membuat subscription: ' . $e->getMessage());
             Toaster::error('Gagal membuat subscription: ' . $e->getMessage());
         }
