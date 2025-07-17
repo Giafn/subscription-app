@@ -27,14 +27,14 @@ class MidtransCallbackController extends Controller
 
         if (!$transaction) {
             Log::warning("🚫 Transaksi tidak ditemukan untuk Order ID: $orderId");
-            return response()->json(['message' => 'Transaction not found'], 404);
+            return response()->json(['message' => 'Transaction not found'], 200);
         }
 
         $subscription = $transaction->subscription;
 
         if (!$subscription) {
             Log::warning("🚫 Subscription tidak ditemukan untuk Order ID: $orderId");
-            return response()->json(['message' => 'Subscription not found'], 404);
+            return response()->json(['message' => 'Subscription not found'], 200);
         }
 
         $planType = $subscription->plan->type;
